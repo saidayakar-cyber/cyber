@@ -6,4 +6,9 @@
   <url><loc>/projects/phishing-email-analysis.html</loc></url>
   <url><loc>/projects/secure-network-lab.html</loc></url>
   <url><loc>/projects/vulnerability-scan.html</loc></url>
+
+  <url><loc>/docs/</loc></url>
+  <url><loc>/docs/logwatch.html</loc></url>
+  <url><loc>/docs/password-manager.html</loc></url>
+
 </urlset>
