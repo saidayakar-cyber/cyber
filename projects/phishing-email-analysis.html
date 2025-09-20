@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Phishing Email Analysis — Sai Dayakar Reddy — ICT Support & Cybersecurity Portfolio</title>
+  <meta name="description" content="Phishing Email Analysis — Portfolio of Sai Dayakar Reddy Gollapudi — ICT Support & Cybersecurity projects, skills, and experience.">
+  <link rel="icon" href="/favicon.ico">
+  <link rel="stylesheet" href="/assets/style.css">
+</head>
+<body>
+  <div class="container">
+    <div class="headerbar">
+      <a class="btn-ghost" href="/#projects" aria-label="Back to Projects">← Back to Projects</a>
+      <div class="right">
+        <a class="btn-ghost" href="https://www.linkedin.com/in/sai-dayakar-reddy-gollapudi-b2b6651ab/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+        <a class="btn-ghost" href="https://github.com/saidayakar-cyber" target="_blank" rel="noopener noreferrer">GitHub</a>
+        <!-- Intentionally no Download button on project pages -->
+      </div>
+    </div>
+
+    <article class="card article">
+      <h1>Phishing Email Analysis</h1>
+      <p>Investigated suspicious emails via headers, URLs, and attachments; documented a short response playbook.</p>
+
+      <ul class="toc">
+        <li><a href="#env">Environment &amp; Tools</a></li>
+        <li><a href="#build">How I built it</a></li>
+        <li><a href="#run">How to run</a></li>
+        <li><a href="#outcomes">Outcomes</a></li>
+        <li><a href="#repo">Repository</a></li>
+      </ul>
+
+      <h2 id="env">Environment &amp; Tools</h2>
+      <p class="note">Outlook/Gmail message headers, urlscan-style analysis, VirusTotal for hashes (lab)</p>
+
+      <h2 id="build">How I built it</h2>
+      <ol>
+        <li>Pulled full headers and parsed SPF/DKIM/DMARC fields</li>
+<li>Checked URLs against sandboxes and reputation lists</li>
+<li>Drafted a decision tree for quick user guidance</li>
+      </ol>
+
+      <h2 id="run">How to run</h2>
+      <ol>
+        <li><code>Export full headers and paste into header analyzer</code></li>
+<li><code>Open suspicious URLs in an isolated VM only</code></li>
+      </ol>
+
+      <h2 id="outcomes">Outcomes</h2>
+      <ul>
+        <li>Consistent triage outcome (benign vs. phishing) in ~5 minutes</li>
+<li>Reusable mini-playbook to standardize responses for end users</li>
+      </ul>
+
+      <h2 id="repo">Repository</h2>
+      <p><a class="btn" href="https://github.com/saidayakar-cyber" target="_blank" rel="noopener noreferrer">Open on GitHub</a></p>
+    </article>
+  </div>
+</body>
+</html>
