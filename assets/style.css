@@ -47,3 +47,6 @@ th,td{border:1px solid var(--border);padding:8px;text-align:left}
 .footer{padding:22px 0;border-top:1px solid var(--border);color:var(--muted);margin-top:26px}
 @media (max-width:1000px){.grid.cols-3{grid-template-columns:1fr 1fr}.hero h1{font-size:34px}}
 @media (max-width:720px){.grid.cols-2,.grid.cols-3{grid-template-columns:1fr}.hero{padding:20px}.hero h1{font-size:28px}}
+
+/* small spacing for emoji icons in project titles */
+.project-card h3{display:flex;gap:.4rem;align-items:center}
