@@ -159,3 +159,31 @@ html, body{
 .container, .section, .hero, .site-wrapper, .main-wrapper, .app, .page{
   background: transparent !important;
 }
+
+
+/* === Full-page background layer (robust) === */
+html, body{
+  min-height: 100% !important;
+  height: auto !important;
+  background: transparent !important;  /* gradient handled by ::before layer */
+}
+/* Fixed gradient layer behind all content */
+body::before{
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background:
+    radial-gradient(1200px 700px at 8% -10%, rgba(0, 230, 255, 0.16), transparent 60%),
+    radial-gradient(1100px 650px at 96% 0%, rgba(140, 90, 255, 0.12), transparent 60%),
+    radial-gradient(900px 500px at 50% 65%, rgba(0, 180, 255, 0.10), transparent 60%),
+    linear-gradient(180deg, #0b1220 0%, #0b1120 35%, #0b1426 100%);
+  background-attachment: fixed, fixed, fixed, fixed;
+  background-repeat: no-repeat;
+}
+/* Ensure wrappers don't paint over the gradient */
+main, .main, .content, .page, .page-content, .site-wrapper, .main-wrapper,
+.container, .container-fluid, .section, .hero{
+  background: transparent !important;
+  background-color: transparent !important;
+}
