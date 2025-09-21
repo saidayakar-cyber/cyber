@@ -1,0 +1,97 @@
+
+/* =========================
+   Cyber — Attractive Styling
+   (Drop-in replacement CSS)
+   ========================= */
+:root{
+  --bg:#070b10;
+  --card:#0e141b;
+  --text:#e8eef5;
+  --muted:#a7b4c5;
+  --border:#1a2532;
+  --accent:#66d1ff;   /* change me for brand color */
+  --accent-2:#8af3d4;
+  --shadow: 0 8px 24px rgba(0,0,0,.35);
+}
+
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;background:var(--bg);color:var(--text);
+  font-family:ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial;
+  line-height:1.55;
+  -webkit-font-smoothing:antialiased; -moz-osx-font-smoothing:grayscale;
+}
+img{max-width:100%;height:auto;display:block}
+a{color:var(--accent);text-decoration:none}
+a:hover{text-decoration:underline}
+::selection{background:rgba(102,209,255,.25)}
+
+.container{max-width:1100px;margin:0 auto;padding:24px}
+.section{margin:22px 0 28px}
+h1,h2,h3{line-height:1.25;margin:0 0 8px}
+h1{font-size:36px} h2{font-size:24px} h3{font-size:18px}
+p{margin:6px 0 12px;color:var(--text)}
+.note{color:var(--muted);font-size:14px}
+
+.nav{display:flex;align-items:center;justify-content:space-between;padding:12px 0 10px}
+.nav .links{display:flex;gap:14px;flex-wrap:wrap}
+.nav a{padding:6px 8px;border-radius:8px}
+.nav a:hover{background:rgba(255,255,255,.04);text-decoration:none}
+.nav .btn{padding:8px 12px}
+
+.btn{display:inline-block;background:linear-gradient(180deg,var(--accent),var(--accent-2));
+  color:#08141c;border-radius:12px;padding:10px 14px;font-weight:700;border:0;box-shadow:var(--shadow);
+  transform:translateY(0);transition:transform .15s ease, filter .15s ease, box-shadow .2s ease;
+}
+.btn:hover{filter:brightness(1.05);text-decoration:none;transform:translateY(-1px)}
+.btn:active{transform:translateY(0)}
+.btn-ghost{display:inline-block;border:1px solid var(--border);padding:10px 14px;border-radius:12px;color:var(--text);
+  background:rgba(255,255,255,.02);transition:background .2s ease, border-color .2s ease;
+}
+.btn-ghost:hover{background:rgba(255,255,255,.05);text-decoration:none;border-color:#263547}
+
+.card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:18px 18px 16px;
+  box-shadow:0 1px 0 rgba(255,255,255,.02), inset 0 1px 0 rgba(255,255,255,.02);
+}
+.grid{display:grid;gap:16px}
+.grid.cols-2{grid-template-columns:repeat(2,1fr)}
+.grid.cols-3{grid-template-columns:repeat(3,1fr)}
+.grid.cols-4{grid-template-columns:repeat(4,1fr)}
+.project-card{transition:transform .15s ease, box-shadow .2s ease, border-color .2s ease}
+.project-card:hover{transform:translateY(-2px);box-shadow:var(--shadow);border-color:#2a3747}
+
+.badges{display:flex;flex-wrap:wrap;gap:8px}
+.badge{border:1px solid var(--border);background:rgba(255,255,255,.035);padding:6px 10px;border-radius:999px;font-size:13px;color:#dce9f4}
+
+.headerbar{display:flex;justify-content:space-between;align-items:center;margin:10px 0 14px}
+.article h1{margin-top:0}
+hr.sep{border:0;border-top:1px solid var(--border);margin:14px 0}
+
+/* Tables & code */
+table{width:100%;border-collapse:collapse;margin:8px 0 12px}
+th,td{border:1px solid var(--border);padding:8px;text-align:left}
+pre,code{background:#0a1017;color:#e7f1fb;border:1px solid var(--border);border-radius:10px;padding:10px;display:block;overflow:auto}
+
+/* Focus & a11y */
+:focus{outline:2px solid var(--accent-2);outline-offset:2px}
+a:focus-visible, button:focus-visible{outline:2px solid var(--accent-2)}
+.visually-hidden{position:absolute!important;clip:rect(1px,1px,1px,1px);padding:0;border:0;height:1px;width:1px;overflow:hidden}
+
+/* Animations (respect reduced motion) */
+@media (prefers-reduced-motion:no-preference){
+  .fade-in{opacity:0;animation:fade .6s ease forwards}
+  .stagger > *{opacity:0;animation:fade .6s ease forwards}
+  .stagger > *:nth-child(1){animation-delay:.05s}
+  .stagger > *:nth-child(2){animation-delay:.1s}
+  .stagger > *:nth-child(3){animation-delay:.15s}
+  .stagger > *:nth-child(4){animation-delay:.2s}
+  @keyframes fade{to{opacity:1}}
+}
+
+/* Responsive */
+@media (max-width:1000px){
+  .grid.cols-3,.grid.cols-4{grid-template-columns:1fr 1fr}
+}
+@media (max-width:720px){
+  .grid.cols-2,.grid.cols-3,.grid.cols-4{grid-template-columns:1fr}
+  h1{font-size:28px} h2{font-size:20px}
+}
