@@ -1,73 +1,27 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>LogWatch — Documentation</title>
-  <link rel="icon" href="../favicon.ico">
-  <link rel="stylesheet" href="../assets/style.css">
-</head>
-<body>
-  <div class="container">
-    <div class="headerbar">
-      <a class="btn-ghost" href="../docs/">← Back to Docs</a>
-      <div class="right">
-        <a class="btn-ghost" href="../#projects">Projects</a>
-        <a class="btn-ghost" href="../resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a>
-      </div>
-    </div>
-    <article class="card article">
-      <p>LogWatch Project Documentation</p>
-<h1>1. Project Overview</h1>
-<p>The LogWatch project is a Windows-based log monitoring solution designed to detect and track important security-related events in the system. It focuses on failed login attempts, user account creation and deletion, group membership modifications, and privilege use events. This helps administrators identify unauthorized access attempts and account changes.</p>
-<h1>2. How It Works</h1>
-<p>LogWatch collects data from the Windows Security Event Log. The PowerShell script filters for specific Event IDs (4625, 4720, 4726, 4728, 4729, 4672). It outputs alerts in JSON format to C:\LogWatch\alerts.json, and can also display results in the console.</p>
-<p>It runs automatically via Windows Task Scheduler every 1–2 minutes, ensuring continuous monitoring.</p>
-<h1>3. Implementation Steps</h1>
-<p>Created project folder: C:\LogWatch</p>
-<p>Developed PowerShell script (LogWatch.ps1) to query and filter Security Events</p>
-<p>Tested manually by triggering failed logons and creating/deleting users</p>
-<p>Configured Task Scheduler to run script every minute with PowerShell</p>
-<h1>4. Sample Output</h1>
-<p>Example alerts generated and saved in alerts.json:</p>
-<p>- Rule: FailedLogon (ID: 4625, Severity: High)
-  Message: An account failed to log on... Failure Reason: An Error occurred during Logon. Status: 0xC000006D</p>
-<p>- Rule: UserAdded (ID: 4720, Severity: High)
-  Message: A user account was created... Account Name: test1</p>
-<p>- Rule: UserDeleted (ID: 4726, Severity: High)
-  Message: A user account was deleted... Account Name: test1</p>
-<p>- Rule: PrivilegeUse (ID: 4672, Severity: Medium)
-  Message: Special privileges assigned... SeDebugPrivilege SeBackupPrivilege</p>
-<h1>5. Benefits</h1>
-<p>• Detects brute-force login attempts
-• Tracks creation and deletion of accounts
-• Monitors group membership changes
-• Identifies logons with elevated rights
-• Stores data in JSON format usable in SIEM tools</p>
-<h1>6. Future Improvements</h1>
-<p>• Add real-time email or Teams/Slack alerts
-• Monitor additional Event IDs (e.g., 4624 for successful logons)
-• Rotate and archive old logs
-• Integrate with centralized logging tools</p>
-<h1>7. Alerts.json Screenshots</h1>
-<p>Below are real outputs captured from alerts.json file after running LogWatch.ps1. They show different security events detected and logged in structured JSON format.</p>
-<p>Screenshot showing PrivilegeUse and FailedLogon alerts captured in alerts.json.</p>
-<p>Screenshot showing UserAdded, UserDeleted, and GroupMemberAdd alerts captured in alerts.json.</p>
-<h1>8. Project Update: Real-Time Email Alert Integration</h1>
-<p><strong>An important improvement made to the LogWatch project is the addition of real-time email alerts. Instead of only storing alerts in alerts.json or displaying them on the console, the system now sends email notifications directly to administrators using Gmail. This enhancement ensures that critical security events are not missed and administrators can respond faster.</strong></p>
-<p>This command executes LogWatch to check events from the last 5 minutes and outputs results to the console. With the email integration enabled, the same execution also triggers a real-time email alert to the configured Gmail account.</p>
-<p>To test this feature, run the following command in PowerShell:</p>
-<p><strong>.\LogWatch.ps1 -SinceMinutes 5 -ToConsole</strong></p>
-<p>Below are screenshots of the LogWatch email alerts received via Gmail:</p>
-<p>Figure 1: Test email showing LogWatch alert for a single event.</p>
-<p>Figure 2: LogWatch email with multiple detected events, including Failed Logon and Privilege Use alerts.</p>
-<p>With this integration, LogWatch now provides both JSON log storage and real-time alerting, making it a more effective and practical monitoring solution. This improvement reduces response time, keeps administrators informed immediately, and enhances system security visibility.</p>
-<h1>9. Improvement Comparison</h1>
-<p>The following table summarizes the improvements made by integrating real-time Gmail alerts into the LogWatch project compared to the initial implementation:</p>
-<h1>10. Conclusion</h1>
-<p>The LogWatch project successfully evolved from a simple log monitoring tool into a more comprehensive security solution. By adding real-time Gmail email alerts, administrators are now empowered with immediate notifications of critical events, significantly reducing response times. The solution continues to provide structured JSON logs for integration with SIEM platforms, ensuring flexibility and scalability. </p>
-<p>This project demonstrates the importance of continuous improvement in security monitoring. Future enhancements can expand alert delivery methods (e.g., Microsoft Teams, Slack) and cover additional event types, further strengthening system defenses and providing enterprise-grade monitoring capabilities.</p>
-    </article>
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LogWatch — Documentation</title><link rel="icon" href="../favicon.ico"><link rel="stylesheet" href="../assets/style.css"></head>
+<body><div class="container">
+  <div class="headerbar">
+    <a class="btn-ghost" href="./">← Back to Docs</a>
+    <div class="right"><a class="btn-ghost" href="../#projects">Projects</a><a class="btn-ghost" href="../resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a></div>
   </div>
-</body>
-</html>
+  <article class="card article">
+    <h1>LogWatch — Windows Security Log Monitoring</h1>
+    <p>Detects and summarizes key Windows Security events to surface suspicious activity quickly.</p>
+    <h2>Scope</h2>
+    <ul><li>Failed logons (4625)</li><li>User create/delete (4720/4726)</li><li>Group membership add/remove (4728/4729)</li><li>Special privileges (4672)</li></ul>
+    <h2>How It Works</h2>
+    <p>PowerShell queries the Security log and writes JSON to <code>C:\LogWatch\alerts.json</code>. Optionally echoes to console.</p>
+    <h2>Setup</h2>
+    <ol><li>Create folder <code>C:\LogWatch</code></li><li>Place <code>LogWatch.ps1</code></li><li>Trigger test events (failed login; user add/delete)</li><li>Schedule via Task Scheduler (1–2 min)</li></ol>
+    <h2>Sample Output</h2>
+<pre>Rule: FailedLogon (4625, High)
+Message: An account failed to log on... Status: 0xC000006D</pre>
+    <h2>Email Alerts (Optional)</h2>
+    <p>Run <code>.\LogWatch.ps1 -SinceMinutes 5 -ToConsole</code> to simulate recent events and verify mail delivery.</p>
+    <h2>Outcomes</h2>
+    <ul><li>Faster initial triage</li><li>Account change visibility</li><li>JSON ready for SIEM</li></ul>
+  </article>
+</div></body></html>

@@ -1,14 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url><loc>/</loc></url>
-  <url><loc>/projects/basic-log-monitoring.html</loc></url>
-  <url><loc>/projects/password-manager.html</loc></url>
-  <url><loc>/projects/phishing-email-analysis.html</loc></url>
-  <url><loc>/projects/secure-network-lab.html</loc></url>
-  <url><loc>/projects/vulnerability-scan.html</loc></url>
-
-  <url><loc>/docs/</loc></url>
-  <url><loc>/docs/logwatch.html</loc></url>
-  <url><loc>/docs/password-manager.html</loc></url>
-
+  <url><loc>/cyber/</loc></url>
+  <url><loc>/cyber/projects/basic-log-monitoring.html</loc></url>
+  <url><loc>/cyber/projects/password-manager.html</loc></url>
+  <url><loc>/cyber/projects/phishing-email-analysis.html</loc></url>
+  <url><loc>/cyber/projects/secure-network-lab.html</loc></url>
+  <url><loc>/cyber/projects/vulnerability-scan.html</loc></url>
+  <url><loc>/cyber/docs/</loc></url>
+  <url><loc>/cyber/docs/logwatch.html</loc></url>
+  <url><loc>/cyber/docs/password-manager.html</loc></url>
 </urlset>
