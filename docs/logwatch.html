@@ -1,18 +1,27 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-  <meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>LogWatch — Documentation</title>
-  <link rel="icon" href="../favicon.ico">
-  <link rel="stylesheet" href="../assets/style.css">
-</head>
+<html lang="en">
+<head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>LogWatch — Documentation</title><link rel="icon" href="../favicon.ico"><link rel="stylesheet" href="../assets/style.css"></head>
 <body><div class="container">
-  <div class="headerbar"><a class="btn" href="./">← Back to Docs</a></div>
+  <div class="headerbar">
+    <a class="btn-ghost" href="./">← Back to Docs</a>
+    <div class="right"><a class="btn-ghost" href="../#projects">Projects</a><a class="btn-ghost" href="../resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a></div>
+  </div>
   <article class="card article">
     <h1>LogWatch — Windows Security Log Monitoring</h1>
     <p>Detects and summarizes key Windows Security events to surface suspicious activity quickly.</p>
     <h2>Scope</h2>
     <ul><li>Failed logons (4625)</li><li>User create/delete (4720/4726)</li><li>Group membership add/remove (4728/4729)</li><li>Special privileges (4672)</li></ul>
     <h2>How It Works</h2>
-    <p>PowerShell queries the Security log and writes JSON to <code>C:\LogWatch\alerts.json</code>.</p>
+    <p>PowerShell queries the Security log and writes JSON to <code>C:\LogWatch\alerts.json</code>. Optionally echoes to console.</p>
+    <h2>Setup</h2>
+    <ol><li>Create folder <code>C:\LogWatch</code></li><li>Place <code>LogWatch.ps1</code></li><li>Trigger test events (failed login; user add/delete)</li><li>Schedule via Task Scheduler (1–2 min)</li></ol>
+    <h2>Sample Output</h2>
+<pre>Rule: FailedLogon (4625, High)
+Message: An account failed to log on... Status: 0xC000006D</pre>
+    <h2>Email Alerts (Optional)</h2>
+    <p>Run <code>.\LogWatch.ps1 -SinceMinutes 5 -ToConsole</code> to simulate recent events and verify mail delivery.</p>
+    <h2>Outcomes</h2>
+    <ul><li>Faster initial triage</li><li>Account change visibility</li><li>JSON ready for SIEM</li></ul>
   </article>
 </div></body></html>
