@@ -187,3 +187,8 @@ main, .main, .content, .page, .page-content, .site-wrapper, .main-wrapper,
   background: transparent !important;
   background-color: transparent !important;
 }
+
+
+/* === Darken hero + certifications to match About card === */
+.hero{ background: var(--surface) !important; }
+.certs-grid .card{ background: var(--surface) !important; }
