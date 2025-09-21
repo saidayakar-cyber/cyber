@@ -109,3 +109,20 @@ body {
   background-attachment: fixed;
   background-repeat: no-repeat;
 }
+
+/* === Background Gradient (robust) === */
+html, body {
+  height: 100% !important;
+  margin: 0 !important;
+  padding: 0 !important;
+}
+body {
+  background: linear-gradient(180deg, #0a0f1a 0%, #111827 40%, #1a2233 100%) !important;
+  background-attachment: fixed !important;
+  background-repeat: no-repeat !important;
+}
+
+/* Make common wrappers transparent so the gradient shows */
+.container, .section, .hero, .site-wrapper, .main-wrapper, .app, .page {
+  background: transparent !important;
+}
