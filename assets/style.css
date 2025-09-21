@@ -53,3 +53,29 @@ th,td{border:1px solid var(--border);padding:8px;text-align:left}
 @media(max-width: 900px){.certs-grid .grid{grid-template-columns:1fr}}
 .certs-grid .card{padding:16px 18px;border-radius:16px;border:1px solid var(--border);background:var(--panel)}
 .certs-grid .card strong{display:block;margin-bottom:6px}
+
+/* ===== Consistent card polish for Learning Timeline and Certifications ===== */
+
+/* Reduce vertical padding ~12% and set uniform min-height so rows align */
+#timeline .card,
+.certs-grid .card{
+  padding: 14px 16px;            /* was ~16-18px */
+  min-height: 120px;             /* keeps rows aligned across different text lengths */
+  transition: transform .15s ease, box-shadow .15s ease;
+}
+
+/* Hover affordance: slight lift + soft shadow */
+#timeline .card:hover,
+.certs-grid .card:hover{
+  transform: translateY(-2px);
+  box-shadow: 0 10px 24px rgba(0,0,0,.18);
+}
+
+/* Keep icon + title on one line with pleasant spacing */
+#timeline .card strong,
+.certs-grid .card strong{
+  display: flex;
+  align-items: center;
+  gap: .4rem;
+  line-height: 1.2;
+}
