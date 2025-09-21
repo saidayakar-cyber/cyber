@@ -47,3 +47,9 @@ th,td{border:1px solid var(--border);padding:8px;text-align:left}
 .footer{padding:22px 0;border-top:1px solid var(--border);color:var(--muted);margin-top:26px}
 @media (max-width:1000px){.grid.cols-3{grid-template-columns:1fr 1fr}.hero h1{font-size:34px}}
 @media (max-width:720px){.grid.cols-2,.grid.cols-3{grid-template-columns:1fr}.hero{padding:20px}.hero h1{font-size:28px}}
+
+/* Certifications grid styling */
+.certs-grid .grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px}
+@media(max-width: 900px){.certs-grid .grid{grid-template-columns:1fr}}
+.certs-grid .card{padding:16px 18px;border-radius:16px;border:1px solid var(--border);background:var(--panel)}
+.certs-grid .card strong{display:block;margin-bottom:6px}
