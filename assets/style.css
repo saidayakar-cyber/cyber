@@ -58,3 +58,13 @@ th,td{border:1px solid var(--border);padding:8px;text-align:left}
 }
 .certs-timeline .card{display:block;padding:18px 20px;border-radius:20px;border:1px solid var(--border);background:var(--panel);}
 .certs-timeline .card strong{display:flex;align-items:center;gap:.6rem}
+
+/* --- Certifications polish --- */
+.certs-timeline .card{padding:14px 16px;border-radius:18px;border:1px solid var(--border);background:var(--panel);transition:transform .15s ease, box-shadow .15s ease;}
+.certs-timeline .card:hover{transform:translateY(-2px);box-shadow:0 10px 24px rgba(0,0,0,.25);}
+.certs-timeline .card strong{display:block;margin-bottom:8px}
+.certs-timeline .tags{display:flex;gap:8px;flex-wrap:wrap}
+.tag{display:inline-block;padding:4px 10px;border-radius:9999px;font-size:.9rem;line-height:1;border:1px solid var(--border);background:rgba(255,255,255,.02)}
+.tag-info{background:linear-gradient(180deg,#263bff1a,#8d6bff1a);border-color:#5a6bff3d}
+.tag-warn{background:linear-gradient(180deg,#ffab001a,#ff6b001a);border-color:#ff8a003d}
+.tag-brand{background:linear-gradient(180deg,#00e5ff1a,#7c4dff1a);border-color:#5b9dff3d}
