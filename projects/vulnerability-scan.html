@@ -29,5 +29,38 @@
       <p><a class="btn" href="https://github.com/saidayakar-cyber" target="_blank" rel="noopener noreferrer">Open on GitHub</a></p>
     </article>
   </div>
+
+<!-- Back to Top -->
+<button id="backToTop" class="back-to-top" aria-label="Back to top" title="Back to top">
+  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+    <path d="M12 19V5"></path>
+    <path d="M6 11l6-6 6 6"></path>
+  </svg>
+</button>
+<script>
+(function(){
+  var btn = document.getElementById('backToTop');
+  if(!btn){return;}
+  var last = 0;
+  function onScroll(){
+    var y = window.scrollY || window.pageYOffset;
+    if(y > 400){ btn.classList.add('show'); }
+    else { btn.classList.remove('show'); }
+    last = y;
+  }
+  window.addEventListener('scroll', onScroll, {passive:true});
+  onScroll();
+  function toTop(e){
+    if (window.matchMedia('(prefers-reduced-motion: reduce)').matches){
+      window.scrollTo(0,0);
+    } else {
+      window.scrollTo({top:0, behavior:'smooth'});
+    }
+  }
+  btn.addEventListener('click', toTop);
+  btn.addEventListener('keydown', function(e){ if(e.key==='Enter' || e.key===' '){ e.preventDefault(); toTop(); }});
+})();
+</script>
+
 </body>
 </html>
