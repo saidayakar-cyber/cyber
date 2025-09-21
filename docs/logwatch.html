@@ -4,8 +4,7 @@
 <title>LogWatch — Documentation</title><link rel="icon" href="../favicon.ico"><link rel="stylesheet" href="../assets/style.css"></head>
 <body><div class="container">
   <div class="headerbar">
-    <a class="btn-ghost" href="./">← Back to Docs</a>
-    <div class="right"><a class="btn-ghost" href="../#projects">Projects</a><a class="btn-ghost" href="../resume.pdf" target="_blank" rel="noopener noreferrer">Resume</a></div>
+    <a class="btn" href="./">← Back to Docs</a>
   </div>
   <article class="card article">
     <h1>LogWatch — Windows Security Log Monitoring</h1>
@@ -26,21 +25,21 @@ Message: An account failed to log on... Status: 0xC000006D</pre>
   
     <h2>Roles &amp; Responsibilities</h2>
     <ul>
-      <li>Planned the scope and selected high‑signal Windows Security Event IDs (4625, 4720/4726, 4728/4729, 4672).</li>
-      <li>Implemented a PowerShell workflow to query logs with <code>Get‑WinEvent</code>, filter by time window, and normalize into JSON.</li>
-      <li>Added a console output switch and persisted results to a JSON file for auditability.</li>
-      <li>Integrated optional email alerts and documented the one‑liner to run on a schedule:
+      <li>Planned scope and selected high‑signal Windows Security Event IDs (4625, 4720/4726, 4728/4729, 4672).</li>
+      <li>Built a PowerShell pipeline using <code>Get‑WinEvent</code> to filter by time window and normalize output to JSON.</li>
+      <li>Added <code>-ToConsole</code> for quick triage and persisted alerts to a JSON file for auditing.</li>
+      <li>Integrated optional email alerts and documented the run command:
         <pre><code>.\LogWatch.ps1 -SinceMinutes 5 -ToConsole</code></pre>
       </li>
-      <li>Tested across noisy vs. quiet lab hosts and tuned filters to reduce false positives.</li>
-      <li>Wrote user documentation and troubleshooting notes for common errors and permission issues.</li>
+      <li>Tuned filters to reduce noise; tested on multiple lab hosts.</li>
+      <li>Wrote user steps and troubleshooting notes for common errors.</li>
     </ul>
     <h2>What I Gained</h2>
     <ul>
-      <li>Hands‑on experience triaging Windows Security logs and mapping events to potential attack behaviors.</li>
-      <li>Deeper PowerShell skills: filtering with hash tables, working with objects, and emitting clean JSON.</li>
-      <li>Operational awareness: balancing signal vs. noise and validating alerts with repeatable tests.</li>
-      <li>Confidence automating a small detection pipeline and packaging clear run instructions for others.</li>
+      <li>Confidence triaging Windows Security logs and mapping events to suspicious behaviors.</li>
+      <li>Practical PowerShell experience with objects, filters, and JSON output.</li>
+      <li>Better signal‑to‑noise thinking and structured testing habits.</li>
+      <li>Ability to document and share a small yet useful detection workflow.</li>
     </ul>
 
 </article>
