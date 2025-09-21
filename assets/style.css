@@ -102,3 +102,10 @@ section#certifications .card strong {
   gap: .4rem !important;
   line-height: 1.2 !important;
 }
+
+/* === Background Gradient for site === */
+body {
+  background: linear-gradient(180deg, #0a0f1a 0%, #111827 40%, #1a2233 100%) !important;
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+}
