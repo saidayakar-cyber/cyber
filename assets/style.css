@@ -79,3 +79,26 @@ th,td{border:1px solid var(--border);padding:8px;text-align:left}
   gap: .4rem;
   line-height: 1.2;
 }
+
+/* ===== STRONGER OVERRIDES for Learning Timeline and Certifications ===== */
+
+section#timeline .card,
+section#certifications .card {
+  padding: 14px 16px !important;
+  min-height: 130px !important;
+  transition: transform .15s ease, box-shadow .15s ease !important;
+}
+
+section#timeline .card:hover,
+section#certifications .card:hover {
+  transform: translateY(-3px) !important;
+  box-shadow: 0 8px 20px rgba(0,0,0,.25) !important;
+}
+
+section#timeline .card strong,
+section#certifications .card strong {
+  display: flex !important;
+  align-items: center !important;
+  gap: .4rem !important;
+  line-height: 1.2 !important;
+}
